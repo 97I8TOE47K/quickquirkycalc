@@ -3,11 +3,13 @@ import math
 import numpy as np
 from setuptools import setup
 import os
+import kivy
+import tkinter as tk
 
 
 def cbrt():
     num=float(input("Enter a number "))
-    cube_root = num ** (1/3)
+    cube_root = math.cbrt(num)
     print("The cube root of the number is: ",cube_root)
   
 
@@ -228,12 +230,18 @@ def options():
  elif op == 9:
      exit()
  else:
-     u = str(input(("Invalid input. Input R to restart")))
+     u = str(input(("Invalid input. Input R to restart ")))
      if u == "R":
         options()
      else:
          print("Invalid input")
 options()
+
+#Elmo will dance for Asha ma'am
+
+
+
+
       
 
 
