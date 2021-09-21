@@ -186,7 +186,7 @@ def threed(): #Function to find surface area and volume
 
         elif shape == 5:
             r = float(input("Radius: "))
-            V = (4/3) ** np.pi * (r ** 3)
+            V = (4/3) * np.pi * (r ** 3)
             print("The volume of the sphere is ",V)
 
         else:
