@@ -200,7 +200,7 @@ def power(): #Function to find the value of nth power of a number
     print("The result is: ",result)
 
 def complexmultiply():
-    print("Warning! Instead of i use j as the complex unit")
+    print("Warning! Instead of i use j as the imaginary unit")
     complex_num1 = input("Enter a complex number: ")
     complex_num2 = input("Enter another complex number: ")
     complex_num1 = complex(complex_num1)
