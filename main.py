@@ -1,4 +1,4 @@
-from gtts import gTTS
+import pyttsx3
 import numpy as np
 from setuptools import setup
 import os
