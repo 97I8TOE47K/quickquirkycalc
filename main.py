@@ -1,5 +1,4 @@
 from gtts import gTTS
-import math
 import numpy as np
 from setuptools import setup
 import os
@@ -7,24 +6,24 @@ import kivy
 import tkinter as tk
 
 
-def cbrt():
+def cbrt(): #Function to find cube root
     num=float(input("Enter a number "))
-    cube_root = math.cbrt(num)
+    cube_root = np.cbrt(num)
     print("The cube root of the number is: ",cube_root)
   
 
-def sqrt():
+def sqrt(): #Function to find square root
     num = float(input("Enter the number: "))
-    square_root = math.sqrt(num)
+    square_root = np.sqrt(num)
     print("The square root of the number is ",square_root)
   
 
-def trig():
+def trig(): #Function to find trigonometric functions
     angle = float(input("Enter the angle (in degrees): "))
     choice = int(input("1. sin \n2. cos \n3. tan\nWhat do you want to take out? "))
-    sin = math.sin(angle)
-    cos = math.cos(angle)
-    tan = math.tan(angle)
+    sin = np.sin(angle) 
+    cos = np.cos(angle)
+    tan = np.tan(angle)
 
     if choice == 1:
         print("The sine of the angle is: ",sin)
@@ -35,12 +34,12 @@ def trig():
     else:
         print("Sorry, probably you have made a mistake. \nNote: We do not support inverse trignometric functions.")
 
-def log():
+def log(): #Function to find logarithm
     num = float(input("Enter a number: "))
     norten = str(input("What do you want to take out? \n1. Natural log \nLog Base 10 \nLog Base 2"))
-    logn = math.log(num)
-    log10 = math.log10(num)
-    log2 = math.log2(num)
+    logn = np.log(num)
+    log10 = np.log10(num)
+    log2 = np.log2(num)
 
     if norten == 1 or str("Natural log"):
         print("The natural log of the number is ",logn)
@@ -49,12 +48,12 @@ def log():
     elif norten == 3 or str("Log Base 2"):
         print("The log of the base 2 number is ",log2)
 
-def factorial():
+def factorial(): #Function to find factorial
     num = int(input("Enter a number: "))
-    ftrl = math.factorial(num)
+    ftrl = np.factorial(num)
     print("The factorial of the number is ",ftrl)
 
-def twod():
+def twod(): #Function to find area and perimeter
 
     area_or_perimeter = int(input("1. Area \n2. Perimeter\nWhat do you want to find? "))
 
@@ -74,7 +73,7 @@ def twod():
 
         elif figure == 3:
             radius = float(input("Radius: ")) 
-            area = math.pi * radius * radius
+            area = np.pi * radius * radius
             print("The area of the circle is ",area)
 
         elif figure == 4:
@@ -106,7 +105,7 @@ def twod():
 
         elif figure == 3:
             radius = float(input("Radius: ")) 
-            perimeter = 2 * math.pi * radius
+            perimeter = 2 * np.pi * radius
             print("The perimeter of the circle is ",perimeter)
 
         elif figure == 4:
@@ -123,7 +122,7 @@ def twod():
     else:
         print("Invalid Input")  
 
-def threed(): 
+def threed(): #Function to find surface area and volume
     sa_v = int(input("1. Surface Area \n2. Volume\nWhat would you like to calculate? "))
 
     if sa_v == 1:
@@ -143,18 +142,18 @@ def threed():
         elif shape == 3:
             r = float(input("Radius: "))
             h = float(input("Height: "))
-            SA = (math.pi * r * r * 2) + (2 * math.pi * r * h) 
+            SA = (np.pi * r * r * 2) + (2 * np.pi * r * h) 
             print("The surface area of the cylinder is ",SA)
 
         elif shape == 4:
             r = float(input("Radius: "))
             h = float(input("Height: "))
-            SA = math.pi * r * (r+math.sqrt((h ** 2)+(r ** 2))) #SA of cone = pi*r(r+sqrt(h^2+r^2))
+            SA = np.pi * r * (r+np.sqrt((h ** 2)+(r ** 2))) #SA of cone = pi*r(r+sqrt(h^2+r^2))
             print("The surface area of the cone is ",SA)
 
         elif shape == 5:
             r = float(input("Radius: "))
-            SA = 4 * math.pi * (r ** 2)
+            SA = 4 * np.pi * (r ** 2)
             print("The surface area of the sphere is ",SA)
 
         else:
@@ -177,28 +176,37 @@ def threed():
         elif shape == 3:
             r = float(input("Radius: "))
             h = float(input("Height: "))
-            V = math.pi * (r ** 2) * h
+            V = np.pi * (r ** 2) * h
             print("The volume of the cylinder is ",V)
 
         elif shape == 4:
             r = float(input("Radius: "))
             h = float(input("Height: "))
-            V = math.pi * (r ** 2) * (h/3)
+            V = np.pi * (r ** 2) * (h/3)
             print("The volume of the cone is ",V)
 
         elif shape == 5:
             r = float(input("Radius: "))
-            V = (4/3) ** math.pi * (r ** 3)
+            V = (4/3) ** np.pi * (r ** 3)
             print("The volume of the sphere is ",V)
 
         else:
             print("Invalid Input")
 
-def power():
+def power(): #Function to find the value of nth power of a number
     num = float(input("Base: "))
     power = float(input("Exponent: "))
     result = num ** power
     print("The result is: ",result)
+
+def complexmultiply():
+    print("Warning! Instead of i use j as the complex unit")
+    complex_num1 = input("Enter a complex number: ")
+    complex_num2 = input("Enter another complex number: ")
+    complex_num1 = complex(complex_num1)
+    complex_num2 = complex(complex_num2)
+    result = complex_num1 * complex_num2
+    print(result)
 
 #Make a list from which the user can choose the operation, subsequently will follow running the associated function
 #print("Welcome to QuickQuackCalc")
@@ -208,7 +216,7 @@ def power():
 #Quack will be added to the name later on when we introduce "duck" features
 
 print("Welcome to QuickQuirkyCalc")
-op = int(input("1. Find area and perimeter \n2. Find volume and surface area\n3. Find square root \n4. Find Cube root \n5. Raise a number to an exponent \n6. Find factorial \n7. Find logarithm \n8. Find values of non-inverse trigonometric functions \n9. Exit \nWhat would you like to do? "))
+op = int(input("1. Find area and perimeter \n2. Find volume and surface area\n3. Find square root \n4. Find Cube root \n5. Raise a number to an exponent \n6. Find factorial \n7. Find logarithm \n8. Find values of non-inverse trigonometric functions \n9. Exit\n10. Complex Number Multiplication \nWhat would you like to do? "))
 
 def options():
  if op == 1:
@@ -229,12 +237,17 @@ def options():
      trig()
  elif op == 9:
      exit()
+ elif op == 10:
+     complexmultiply()
  else:
-     u = str(input(("Invalid input. Input R to restart ")))
-     if u == "R":
+     u = input(("Invalid input. Input R to restart "))
+     if u == str("R"):
         options()
      else:
          print("Invalid input")
+
+
+
 options()
 
 #Elmo will dance for Asha ma'am
