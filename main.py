@@ -2,8 +2,7 @@ from gtts import gTTS
 import numpy as np
 from setuptools import setup
 import os
-import kivy
-import tkinter as tk
+import PyQt5
 
 
 def cbrt(): #Function to find cube root
